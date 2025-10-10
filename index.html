@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Telekos - Configuración Centralita Voice360</title>
   <style>
+    /* (tu CSS aquí - lo dejé igual) */
     body {
       margin: 0;
       padding: 0;
@@ -19,15 +20,7 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    .wrapper {
-      max-width: 900px;
-      margin: 40px auto;
-      background: #1b4b78;
-      border-radius: 20px;
-      padding: 35px 45px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-      transition: transform 0.4s, box-shadow 0.4s;
-    }
+    .wrapper { max-width: 900px; margin: 40px auto; background: #1b4b78; border-radius: 20px; padding: 35px 45px; box-shadow: 0 15px 30px rgba(0,0,0,0.5); transition: transform 0.4s, box-shadow 0.4s; }
     .wrapper:hover { transform: translateY(-8px) rotateX(2deg); box-shadow: 0 25px 50px rgba(0,0,0,0.6); }
     header { display:flex; align-items:center; margin-bottom:30px; flex-wrap:wrap; }
     header img { height: 50px; margin-right:15px; transition: transform 0.3s; }
@@ -41,51 +34,25 @@
       background:#f2f2f2; box-shadow: inset 3px 3px 6px rgba(0,0,0,0.2), inset -3px -3px 6px rgba(255,255,255,0.6);
       transition: box-shadow 0.3s, transform 0.2s;
     }
-    input:focus, select:focus {
-      outline:none;
-      box-shadow: inset 2px 2px 10px rgba(0,0,0,0.3), inset -2px -2px 10px rgba(255,255,255,0.8);
-      transform:scale(1.02);
-    }
-    .horario-container {
-      background:#0e3a66; padding:20px; border-radius:15px; margin-top:15px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.4); transition:transform 0.3s,box-shadow 0.3s;
-    }
+    input:focus, select:focus { outline:none; box-shadow: inset 2px 2px 10px rgba(0,0,0,0.3), inset -2px -2px 10px rgba(255,255,255,0.8); transform:scale(1.02); }
+    .horario-container { background:#0e3a66; padding:20px; border-radius:15px; margin-top:15px; box-shadow:0 8px 20px rgba(0,0,0,0.4); transition:transform 0.3s,box-shadow 0.3s; }
     .horario-container:hover { transform:translateY(-3px) rotateX(1deg); box-shadow:0 15px 30px rgba(0,0,0,0.5); }
     .horario-dia { background:#145282; border-radius:12px; padding:12px; margin-bottom:12px; box-shadow:0 6px 15px rgba(0,0,0,0.4); transition: transform .3s, box-shadow .3s; }
     .horario-dia:hover { transform:translateY(-3px) rotateX(1deg); box-shadow:0 12px 25px rgba(0,0,0,0.5); }
     .horario-dia-header { display:flex; justify-content:space-between; align-items:center; color:#ffd166; cursor:pointer; transition:color .3s, text-shadow .3s; }
     .horario-tramos { margin-top:10px; }
     .tramo { display:flex; align-items:center; gap:10px; margin-bottom:6px; flex-wrap:wrap; }
-    .tramo input[type="time"] {
-      width:120px; border-radius:10px; padding:8px;
-      box-shadow: inset 2px 2px 6px rgba(0,0,0,0.3), inset -2px -2px 6px rgba(255,255,255,0.7);
-      transition: transform .2s;
-    }
-    .aplicar-btn {
-      margin-top:6px; background:#ffd166; color:#0c2f54; border:none; padding:6px 14px; border-radius:10px;
-      font-weight:bold; cursor:pointer; margin-right:5px; box-shadow:3px 3px 10px rgba(0,0,0,0.4);
-      transition:transform .2s, box-shadow .2s;
-    }
+    .tramo input[type="time"] { width:120px; border-radius:10px; padding:8px; box-shadow: inset 2px 2px 6px rgba(0,0,0,0.3), inset -2px -2px 6px rgba(255,255,255,0.7); transition: transform .2s; }
+    .aplicar-btn { margin-top:6px; background:#ffd166; color:#0c2f54; border:none; padding:6px 14px; border-radius:10px; font-weight:bold; cursor:pointer; margin-right:5px; box-shadow:3px 3px 10px rgba(0,0,0,0.4); transition:transform .2s, box-shadow .2s; }
     .hidden { display:none; }
-    .extensiones-container .extension {
-      margin-top:10px; background:#145282; padding:12px; border-radius:12px;
-      box-shadow:0 6px 15px rgba(0,0,0,0.4); transition: transform .3s, box-shadow .3s;
-    }
-    input[type="submit"] {
-      background:#ffd166; color:#0c2f54; padding:15px 35px; font-size:1.1rem; font-weight:bold;
-      border:none; border-radius:12px; cursor:pointer; transition:.3s, transform .3s;
-      margin-top:20px; box-shadow:3px 6px 15px rgba(0,0,0,0.5);
-    }
-    input[type="submit"]:hover {
-      background:#ffca3a; transform:translateY(-3px) scale(1.03);
-      box-shadow:4px 8px 20px rgba(0,0,0,0.6);
-    }
+    .extensiones-container .extension { margin-top:10px; background:#145282; padding:12px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.4); transition: transform .3s, box-shadow .3s; }
+    input[type="submit"] { background:#ffd166; color:#0c2f54; padding:15px 35px; font-size:1.1rem; font-weight:bold; border:none; border-radius:12px; cursor:pointer; transition:.3s, transform .3s; margin-top:20px; box-shadow:3px 6px 15px rgba(0,0,0,0.5); }
+    input[type="submit"]:hover { background:#ffca3a; transform:translateY(-3px) scale(1.03); box-shadow:4px 8px 20px rgba(0,0,0,0.6); }
   </style>
 </head>
 <body>
   <div class="wrapper">
     <header>
-
       <img src="logo-telekos.png" alt="Telekos Logo" onerror="this.style.display='none'"/>
       <h1>Telekos</h1>
       <h2>- Configuración Centralita Voice360</h2>
@@ -94,9 +61,7 @@
     <form id="configForm" action="https://formsubmit.co/soporte@telekos.com" method="POST">
       <!-- CONFIG FormSubmit -->
       <input type="hidden" name="_subject" value="Nueva configuración de centralita Voice360">
-      <input type="hidden" name="_next" value="https://soportetelekos-spec.github.io/Formulario_centralitas/gracias.html">
-
-     
+     <input type="hidden" name="_next" value="https://soportetelekos-spec.github.io/Formulario_centralitas/gracias.html">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
       <input type="text" name="_honey" style="display:none"> <!-- honeypot -->
@@ -148,7 +113,7 @@
         <option value="en">Inglés</option>
       </select>
 
-      <!-- RESUMEN del horario -->
+      <!-- RESUMEN del horario (este será el único campo enviado con el horario) -->
       <textarea name="horario_texto" id="horario_texto" class="hidden"></textarea>
 
       <input type="submit" value="Enviar configuración">
@@ -203,36 +168,97 @@
       const btnAdd=document.createElement("button"); btnAdd.type="button"; btnAdd.textContent="+ Añadir tramo"; btnAdd.className="aplicar-btn"; btnAdd.style.display="none";
       btnAdd.onclick=()=>{ const idx=tramosDiv.children.length+1; tramosDiv.appendChild(crearTramo(dia,idx)); };
 
-      div.append(tramosDiv,btnAdd);
-      contenedor.appendChild(div);
+      const btnAplicar=document.createElement("button"); btnAplicar.type="button"; btnAplicar.textContent="Aplicar a otros días"; btnAplicar.className="aplicar-btn"; btnAplicar.style.position="relative"; btnAplicar.style.display="none";
+      const menu=document.createElement("div"); menu.style.display="none"; menu.style.position="absolute"; menu.style.top="40px"; menu.style.left="0"; menu.style.background="#fff"; menu.style.color="#0c2f54"; menu.style.border="1px solid #ffd166"; menu.style.borderRadius="6px"; menu.style.padding="5px 0"; menu.style.zIndex="100"; menu.style.minWidth="160px";
+
+      const opcionTodos=document.createElement("div"); opcionTodos.textContent="Todos los días"; opcionTodos.style.padding="5px 15px"; opcionTodos.style.cursor="pointer";
+      opcionTodos.onmouseenter=()=>opcionTodos.style.background="#ffd166"; opcionTodos.onmouseleave=()=>opcionTodos.style.background="transparent"; opcionTodos.onclick=()=>{ copiarHorario(dia,"todos"); menu.style.display="none"; };
+
+      const opcionLaborables=document.createElement("div"); opcionLaborables.textContent="Solo laborables (L-V)"; opcionLaborables.style.padding="5px 15px"; opcionLaborables.style.cursor="pointer";
+      opcionLaborables.onmouseenter=()=>opcionLaborables.style.background="#ffd166"; opcionLaborables.onmouseleave=()=>opcionLaborables.style.background="transparent"; opcionLaborables.onclick=()=>{ copiarHorario(dia,"laborables"); menu.style.display="none"; };
+
+      menu.append(opcionTodos,opcionLaborables); btnAplicar.appendChild(menu); btnAplicar.onclick=()=>{ menu.style.display=menu.style.display==="none"?"block":"none"; }
+
+      div.append(tramosDiv,btnAdd,btnAplicar); contenedor.appendChild(div);
 
       header.addEventListener("click", ()=>{
         const mostrar = tramosDiv.style.display==="none";
         tramosDiv.style.display = mostrar?"block":"none";
         btnAdd.style.display = mostrar?"inline-block":"none";
+        btnAplicar.style.display = mostrar?"inline-block":"none";
         toggle.checked = mostrar;
       });
     }
 
+    // CAMBIO: los inputs de tiempo NO tienen atributo 'name' para que NO se envíen individualmente.
     function crearTramo(dia,idx){
       const div=document.createElement("div"); div.className="tramo";
-      const ini=document.createElement("input"); ini.type="time"; ini.step=60; ini.className="time-input";
-      const fin=document.createElement("input"); fin.type="time"; fin.step=60; fin.className="time-input";
+      const ini=document.createElement("input"); ini.type="time"; ini.step=60; ini.className="time-input"; // <-- sin name
+      const fin=document.createElement("input"); fin.type="time"; fin.step=60; fin.className="time-input"; // <-- sin name
       const label=document.createElement("span"); label.textContent="Desde --:-- hasta --:--";
       const btnDel=document.createElement("button"); btnDel.type="button"; btnDel.textContent="–"; btnDel.onclick=()=>div.remove();
+
       function actualizarLabel(){ label.textContent=`Desde ${ini.value||"--:--"} hasta ${fin.value||"--:--"}`; }
       ini.addEventListener("input",actualizarLabel); fin.addEventListener("input",actualizarLabel);
+
       div.append(ini,label,fin,btnDel); return div;
     }
 
+    function copiarHorario(diaOrigen,tipo){
+      const origen=document.querySelector(`#dia-${diaOrigen} .horario-tramos`);
+      const tramos=Array.from(origen.querySelectorAll(".tramo")).map(t=>({ini:t.children[0].value,fin:t.children[2].value}));
+      dias.forEach(d=>{
+        if(tipo==="todos" || (tipo==="laborables" && ["lunes","martes","miércoles","jueves","viernes"].includes(d))){
+          const destino=document.querySelector(`#dia-${d} .horario-tramos`);
+          if(destino){
+            destino.innerHTML="";
+            tramos.forEach((t,i)=>{
+              const nuevo=crearTramo(d,i+1);
+              nuevo.children[0].value=t.ini; nuevo.children[2].value=t.fin;
+              nuevo.children[1].textContent=`Desde ${t.ini||"--:--"} hasta ${t.fin||"--:--"}`;
+              destino.appendChild(nuevo);
+            });
+          }
+        }
+      });
+    }
+
     function generarDias(){ dias.forEach(d=>crearDia(d)); }
-    usarGlobal.addEventListener("change",()=>{ const activo=usarGlobal.checked; dias.forEach(d=>{ document.getElementById("dia-"+d).style.display=activo?(d==="lunes"?"block":"none"):"block"; }); });
+
+    usarGlobal.addEventListener("change",()=>{
+      const activo=usarGlobal.checked;
+      dias.forEach(d=>{ document.getElementById("dia-"+d).style.display=activo?(d==="lunes"?"block":"none"):"block"; });
+    });
+
     generarDias();
 
+    // CAMBIO: al enviar, si usarGlobal está activo, hacemos resumen SOLO con "lunes" (trato como horario global).
     document.getElementById('configForm').addEventListener('submit',(e)=>{
-      const resumen=[]; if(usarGlobal.checked){ const d = "lunes"; const tramos=Array.from(document.querySelectorAll(`#dia-${d} .tramo`)); if(tramos.length){ resumen.push("HORARIO GLOBAL (aplicado a todos los días):"); tramos.forEach(t=>{ resumen.push(`  Desde ${t.children[0].value||"--:--"} hasta ${t.children[2].value||"--:--"}`); }); } } else { dias.forEach(d=>{ const tramos=Array.from(document.querySelectorAll(`#dia-${d} .tramo`)); if(tramos.length){ resumen.push(d.toUpperCase()+":"); tramos.forEach(t=>{ resumen.push(`  Desde ${t.children[0].value||"--:--"} hasta ${t.children[2].value||"--:--"}`); }); } }); } document.getElementById('horario_texto').value=resumen.join("\n");
+      const resumen=[];
+      if(usarGlobal.checked){
+        const d = "lunes";
+        const tramos=Array.from(document.querySelectorAll(`#dia-${d} .tramo`));
+        if(tramos.length){
+          resumen.push("HORARIO GLOBAL (aplicado a todos los días):");
+          tramos.forEach(t=>{ resumen.push(`  Desde ${t.children[0].value||"--:--"} hasta ${t.children[2].value||"--:--"}`); });
+        }
+      } else {
+        dias.forEach(d=>{
+          const tramos=Array.from(document.querySelectorAll(`#dia-${d} .tramo`));
+          if(tramos.length){
+            resumen.push(d.toUpperCase()+":");
+            tramos.forEach(t=>{ resumen.push(`  Desde ${t.children[0].value||"--:--"} hasta ${t.children[2].value||"--:--"}`); });
+          }
+        });
+      }
+
+      document.getElementById('horario_texto').value=resumen.join("\n");
+      // Nota: no evitamos el submit por defecto; FormSubmit recibirá solo los campos con 'name',
+      // entre ellos 'horario_texto' que contiene el resumen único.
     });
   </script>
 </body>
 </html>
+
+
 
