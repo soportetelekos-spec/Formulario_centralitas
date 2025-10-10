@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telekos - Configuración Centralita Voice360</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(270deg, #0c2f54, #145282, #0e3a66);
+      background-size: 600% 600%;
+      animation: gradientBG 20s ease infinite;
+      color: #fff;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .wrapper {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #1b4b78;
+      border-radius: 20px;
+      padding: 35px 45px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .wrapper:hover { transform: translateY(-8px) rotateX(2deg); box-shadow: 0 25px 50px rgba(0,0,0,0.6); }
+    header { display:flex; align-items:center; margin-bottom:30px; flex-wrap:wrap; }
+    header img { height: 50px; margin-right:15px; transition: transform 0.3s; }
+    header img:hover { transform: rotate(10deg) scale(1.1); }
+    header h1 { font-size:1.8rem; color:#ffd166; margin-right:10px; text-shadow:2px 2px 5px rgba(0,0,0,0.5); }
+    header h2 { font-size:1.2rem; font-weight:normal; color:#ffd166; text-shadow:1px 1px 3px rgba(0,0,0,0.5); }
+    form { display:flex; flex-direction:column; }
+    label { margin-top:20px; font-weight:600; }
+    input[type="number"], input[type="text"], input[type="time"], input[type="email"], select {
+      width:100%; padding:14px; margin-top:6px; border:none; border-radius:12px; font-size:1rem; color:#000;
+      background:#f2f2f2; box-shadow: inset 3px 3px 6px rgba(0,0,0,0.2), inset -3px -3px 6px rgba(255,255,255,0.6);
+      transition: box-shadow 0.3s, transform 0.2s;
+    }
+    input:focus, select:focus {
+      outline:none;
+      box-shadow: inset 2px 2px 10px rgba(0,0,0,0.3), inset -2px -2px 10px rgba(255,255,255,0.8);
+      transform:scale(1.02);
+    }
+    .horario-container {
+      background:#0e3a66; padding:20px; border-radius:15px; margin-top:15px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.4); transition:transform 0.3s,box-shadow 0.3s;
+    }
+    .horario-container:hover { transform:translateY(-3px) rotateX(1deg); box-shadow:0 15px 30px rgba(0,0,0,0.5); }
+    .horario-dia { background:#145282; border-radius:12px; padding:12px; margin-bottom:12px; box-shadow:0 6px 15px rgba(0,0,0,0.4); transition: transform .3s, box-shadow .3s; }
+    .horario-dia:hover { transform:translateY(-3px) rotateX(1deg); box-shadow:0 12px 25px rgba(0,0,0,0.5); }
+    .horario-dia-header { display:flex; justify-content:space-between; align-items:center; color:#ffd166; cursor:pointer; transition:color .3s, text-shadow .3s; }
+    .horario-tramos { margin-top:10px; }
+    .tramo { display:flex; align-items:center; gap:10px; margin-bottom:6px; flex-wrap:wrap; }
+    .tramo input[type="time"] {
+      width:120px; border-radius:10px; padding:8px;
+      box-shadow: inset 2px 2px 6px rgba(0,0,0,0.3), inset -2px -2px 6px rgba(255,255,255,0.7);
+      transition: transform .2s;
+    }
+    .aplicar-btn {
+      margin-top:6px; background:#ffd166; color:#0c2f54; border:none; padding:6px 14px; border-radius:10px;
+      font-weight:bold; cursor:pointer; margin-right:5px; box-shadow:3px 3px 10px rgba(0,0,0,0.4);
+      transition:transform .2s, box-shadow .2s;
+    }
+    .hidden { display:none; }
+    .extensiones-container .extension {
+      margin-top:10px; background:#145282; padding:12px; border-radius:12px;
+      box-shadow:0 6px 15px rgba(0,0,0,0.4); transition: transform .3s, box-shadow .3s;
+    }
+    input[type="submit"] {
+      background:#ffd166; color:#0c2f54; padding:15px 35px; font-size:1.1rem; font-weight:bold;
+      border:none; border-radius:12px; cursor:pointer; transition:.3s, transform .3s;
+      margin-top:20px; box-shadow:3px 6px 15px rgba(0,0,0,0.5);
+    }
+    input[type="submit"]:hover {
+      background:#ffca3a; transform:translateY(-3px) scale(1.03);
+      box-shadow:4px 8px 20px rgba(0,0,0,0.6);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+
+      <img src="logo-telekos.png" alt="Telekos Logo" onerror="this.style.display='none'"/>
+      <h1>Telekos</h1>
+      <h2>- Configuración Centralita Voice360</h2>
+    </header>
+
+    <form id="configForm" action="https://formsubmit.co/soporte@telekos.com" method="POST">
+      <!-- CONFIG FormSubmit -->
+      <input type="hidden" name="_subject" value="Nueva configuración de centralita Voice360">
+      <input type="hidden" name="_next" value="https://soportetelekos.github.io/Formulario-centralitaVoice360/gracias.html">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none"> <!-- honeypot -->
+
+      <label for="nombre_empresa">Nombre de la empresa:</label>
+      <input type="text" id="nombre_empresa" name="nombre_empresa" required>
+
+      <label for="extensiones">¿Cuántas extensiones necesita?</label>
+      <input type="number" id="extensiones" name="extensiones" min="1" required>
+      <div class="extensiones-container" id="extensiones-container"></div>
+
+      <label>Horario de oficina</label>
+      <div class="horario-container">
+        <div class="horario-global-switch">
+          <input type="checkbox" id="usar-global" name="usar_global">
+          <label for="usar-global">Usar horario global (igual para todos los días)</label>
+        </div>
+        <div id="dias-horario"></div>
+      </div>
+
+      <label>Locución de bienvenida:</label>
+      <div>
+        <input type="checkbox" id="locucion-horario" name="locucion_horario">
+        <label for="locucion-horario">Activar locución dentro de horario</label>
+        <input type="text" id="locucion-text" name="locucion_text" class="hidden" placeholder="Mensaje de bienvenida">
+      </div>
+
+      <div style="margin-top:10px;">
+        <input type="checkbox" id="locucion-fuera" name="locucion_fuera">
+        <label for="locucion-fuera">Activar locución fuera de horario</label>
+        <div id="fuera-horario-container" class="hidden" style="margin-top:6px;">
+          <input type="text" id="fuera-locucion-text" name="locucion_fuera_text" class="hidden" placeholder="Mensaje de locución fuera de horario">
+          <div class="radio-group" style="margin-top:6px;">
+            <input type="radio" id="fuera-buzon" name="fuera_opcion" value="buzon">
+            <label for="fuera-buzon">Buzón de voz</label>
+            <input type="radio" id="fuera-colgar" name="fuera_opcion" value="colgar">
+            <label for="fuera-colgar">Colgar</label>
+          </div>
+          <div id="fuera-buzon-mail" class="hidden" style="margin-top:6px;">
+            <label for="fuera-buzon-mail-input">Correo para buzón de voz:</label>
+            <input type="email" id="fuera-buzon-mail-input" name="fuera_buzon" placeholder="correo@empresa.com">
+          </div>
+        </div>
+      </div>
+
+      <label for="idioma">Idioma de atención:</label>
+      <select id="idioma" name="idioma">
+        <option value="es">Español</option>
+        <option value="en">Inglés</option>
+      </select>
+
+      <!-- RESUMEN del horario -->
+      <textarea name="horario_texto" id="horario_texto" class="hidden"></textarea>
+
+      <input type="submit" value="Enviar configuración">
+    </form>
+  </div>
+
+  <script>
+    const dias = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"];
+    const contenedor = document.getElementById("dias-horario");
+    const usarGlobal = document.getElementById("usar-global");
+    const extInput = document.getElementById("extensiones");
+    const extContainer = document.getElementById("extensiones-container");
+    const locHorario = document.getElementById("locucion-horario");
+    const locText = document.getElementById("locucion-text");
+    const locFuera = document.getElementById("locucion-fuera");
+    const fueraContainer = document.getElementById("fuera-horario-container");
+    const fueraBuzonRadio = document.getElementById("fuera-buzon");
+    const fueraColgarRadio = document.getElementById("fuera-colgar");
+    const fueraBuzonMailDiv = document.getElementById("fuera-buzon-mail");
+    const fueraLocText = document.getElementById("fuera-locucion-text");
+
+    extInput.addEventListener("input", () => {
+      const n = parseInt(extInput.value)||0;
+      extContainer.innerHTML = "";
+      for(let i=1;i<=n;i++){
+        const div=document.createElement("div"); div.className="extension";
+        const label=document.createElement("label"); label.textContent=`Nombre de la extensión ${i}:`;
+        const input=document.createElement("input"); input.type="text"; input.name=`extension_${i}`; input.required=true;
+        div.append(label,input); extContainer.appendChild(div);
+      }
+    });
+
+    locHorario.addEventListener("change", ()=>{ locText.classList.toggle("hidden", !locHorario.checked); });
+    locFuera.addEventListener("change", ()=>{ 
+      fueraContainer.classList.toggle("hidden", !locFuera.checked);
+      fueraLocText.classList.toggle("hidden", !locFuera.checked);
+    });
+
+    fueraBuzonRadio.addEventListener("change", ()=>{ fueraBuzonMailDiv.classList.remove("hidden"); });
+    fueraColgarRadio.addEventListener("change", ()=>{ fueraBuzonMailDiv.classList.add("hidden"); });
+
+    function crearDia(dia){
+      const div=document.createElement("div"); div.className="horario-dia"; div.id="dia-"+dia;
+      const header=document.createElement("div"); header.className="horario-dia-header";
+      const nombre=document.createElement("span"); nombre.textContent=dia.charAt(0).toUpperCase()+dia.slice(1);
+      const toggle=document.createElement("input"); toggle.type="checkbox"; toggle.checked=false;
+      header.append(nombre,toggle); div.appendChild(header);
+
+      const tramosDiv=document.createElement("div"); tramosDiv.className="horario-tramos"; tramosDiv.style.display="none";
+      tramosDiv.appendChild(crearTramo(dia,1));
+
+      const btnAdd=document.createElement("button"); btnAdd.type="button"; btnAdd.textContent="+ Añadir tramo"; btnAdd.className="aplicar-btn"; btnAdd.style.display="none";
+      btnAdd.onclick=()=>{ const idx=tramosDiv.children.length+1; tramosDiv.appendChild(crearTramo(dia,idx)); };
+
+      div.append(tramosDiv,btnAdd);
+      contenedor.appendChild(div);
+
+      header.addEventListener("click", ()=>{
+        const mostrar = tramosDiv.style.display==="none";
+        tramosDiv.style.display = mostrar?"block":"none";
+        btnAdd.style.display = mostrar?"inline-block":"none";
+        toggle.checked = mostrar;
+      });
+    }
+
+    function crearTramo(dia,idx){
+      const div=document.createElement("div"); div.className="tramo";
+      const ini=document.createElement("input"); ini.type="time"; ini.step=60; ini.className="time-input";
+      const fin=document.createElement("input"); fin.type="time"; fin.step=60; fin.className="time-input";
+      const label=document.createElement("span"); label.textContent="Desde --:-- hasta --:--";
+      const btnDel=document.createElement("button"); btnDel.type="button"; btnDel.textContent="–"; btnDel.onclick=()=>div.remove();
+      function actualizarLabel(){ label.textContent=`Desde ${ini.value||"--:--"} hasta ${fin.value||"--:--"}`; }
+      ini.addEventListener("input",actualizarLabel); fin.addEventListener("input",actualizarLabel);
+      div.append(ini,label,fin,btnDel); return div;
+    }
+
+    function generarDias(){ dias.forEach(d=>crearDia(d)); }
+    usarGlobal.addEventListener("change",()=>{ const activo=usarGlobal.checked; dias.forEach(d=>{ document.getElementById("dia-"+d).style.display=activo?(d==="lunes"?"block":"none"):"block"; }); });
+    generarDias();
+
+    document.getElementById('configForm').addEventListener('submit',(e)=>{
+      const resumen=[]; if(usarGlobal.checked){ const d = "lunes"; const tramos=Array.from(document.querySelectorAll(`#dia-${d} .tramo`)); if(tramos.length){ resumen.push("HORARIO GLOBAL (aplicado a todos los días):"); tramos.forEach(t=>{ resumen.push(`  Desde ${t.children[0].value||"--:--"} hasta ${t.children[2].value||"--:--"}`); }); } } else { dias.forEach(d=>{ const tramos=Array.from(document.querySelectorAll(`#dia-${d} .tramo`)); if(tramos.length){ resumen.push(d.toUpperCase()+":"); tramos.forEach(t=>{ resumen.push(`  Desde ${t.children[0].value||"--:--"} hasta ${t.children[2].value||"--:--"}`); }); } }); } document.getElementById('horario_texto').value=resumen.join("\n");
+    });
+  </script>
+</body>
+</html>
